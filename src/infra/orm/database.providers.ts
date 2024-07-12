@@ -3,6 +3,7 @@ import { Sequelize } from 'sequelize-typescript';
 import { ENV } from 'src/config/env';
 import { 
   PizzaFlavor,
+  PizzaPersonalization,
   PizzaSize
 } from './entities';
 
@@ -24,7 +25,8 @@ export const databaseProviders = [
       });
       sequelize.addModels([
         PizzaSize,
-        PizzaFlavor
+        PizzaFlavor,
+        PizzaPersonalization
       ]);
       await sequelize.sync();
       return sequelize;

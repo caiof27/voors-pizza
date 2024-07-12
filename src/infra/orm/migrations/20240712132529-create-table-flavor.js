@@ -1,7 +1,5 @@
 'use strict';
 
-const sequelize = require('sequelize');
-
 const tableName = 'tb_pizza_flavor'
 const schema = 'public'
 const table = { tableName, schema }

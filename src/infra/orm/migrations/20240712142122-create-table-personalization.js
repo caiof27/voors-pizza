@@ -1,6 +1,6 @@
 'use strict';
 
-const tableName = 'tb_pizza_size'
+const tableName = 'tb_pizza_personalization'
 const schema = 'public'
 const table = { tableName, schema }
 
@@ -14,18 +14,18 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      size: {
+      personalization: {
         allowNull: false,
         type: Sequelize.STRING
       },
-      prize: {
+      additional_time : {
+        allowNull: false,
+        type: Sequelize.INTEGER
+      },
+      additional_prize: {
         allowNull: false,
         type: Sequelize.FLOAT
       },
-      cooking_time : {
-        allowNull: false,
-        type: Sequelize.INTEGER
-      }
     });
   },
 

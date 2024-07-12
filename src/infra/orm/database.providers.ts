@@ -1,6 +1,9 @@
 import { Dialect } from 'sequelize';
 import { Sequelize } from 'sequelize-typescript';
 import { ENV } from 'src/config/env';
+import { 
+  PizzaSize
+} from './entities';
 
 export const databaseProviders = [
   {
@@ -19,7 +22,7 @@ export const databaseProviders = [
         logging: false,
       });
       sequelize.addModels([
-        
+        PizzaSize
       ]);
       await sequelize.sync();
       return sequelize;

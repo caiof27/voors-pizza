@@ -1,4 +1,4 @@
-import { PizzaSizeModel } from "../models"
+import { PizzaSizeModel } from "src/domain/models"
 
 export interface FindPizzaSizes {
     findAll: ( ) => Promise< FindPizzaSizes.Result >

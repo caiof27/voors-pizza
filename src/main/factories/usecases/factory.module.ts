@@ -1,7 +1,16 @@
 import { Module } from '@nestjs/common';
-import { pizzaSizeProvider } from 'src/infra/orm/providers';
-import { PizzaSizeRepository } from 'src/infra/orm/repositories';
-import { findPizzaSizesFactory } from 'src/main/factories/usecases';
+import { 
+  pizzaFlavorProvider, 
+  pizzaSizeProvider 
+} from 'src/infra/orm/providers';
+import { 
+  PizzaFlavorRepository, 
+  PizzaSizeRepository 
+} from 'src/infra/orm/repositories';
+import { 
+  findPizzaFlavorsFactory, 
+  findPizzaSizesFactory 
+} from 'src/main/factories/usecases';
 
 
 @Module({
@@ -9,17 +18,21 @@ import { findPizzaSizesFactory } from 'src/main/factories/usecases';
     // Repositories
 
     PizzaSizeRepository,
+    PizzaFlavorRepository,
 
     // Providers
 
     pizzaSizeProvider,
+    pizzaFlavorProvider,
 
     // Factories
 
-    findPizzaSizesFactory
+    findPizzaSizesFactory,
+    findPizzaFlavorsFactory
   ],
   exports: [
-    findPizzaSizesFactory
+    findPizzaSizesFactory,
+    findPizzaFlavorsFactory
   ],
 })
 export class FactoryModule {}

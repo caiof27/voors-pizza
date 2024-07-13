@@ -19,7 +19,7 @@ module.exports = {
       },
       {
         size: 'Grande',
-        prize: 40.40,
+        prize: 40.00,
         cooking_time: 25
       }
     ], {});

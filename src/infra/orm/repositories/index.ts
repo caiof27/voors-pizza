@@ -1,3 +1,6 @@
 export * from './pizza-size.repository'
 export * from './pizza-flavor.repository'
 export * from './pizza-personalization.repository'
+export * from './order.repository'
+export * from './order-pizza.repository'
+export * from './order-pizza-personalization.repository'

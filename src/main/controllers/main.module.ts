@@ -2,9 +2,11 @@ import { Module } from '@nestjs/common'
 import { FactoryModule } from 'src/main/factories/usecases/factory.module';
 import { MainController } from 'src/main/controllers/main.controller';
 import { 
+  BuildCreateOrderController,
   BuildFindPizzaFlavorsController,
   BuildFindPizzaPersonalizationsController,
-  BuildFindPizzaSizesController
+  BuildFindPizzaSizesController,
+  BuildFindOrderController
 } from 'src/main/factories/controllers';
 
 
@@ -14,7 +16,9 @@ import {
   providers: [
     BuildFindPizzaSizesController,
     BuildFindPizzaFlavorsController,
-    BuildFindPizzaPersonalizationsController
+    BuildFindPizzaPersonalizationsController,
+    BuildCreateOrderController,
+    BuildFindOrderController
   ],
 })
 export class MainModule {}

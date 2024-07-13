@@ -2,6 +2,9 @@ import { Dialect } from 'sequelize';
 import { Sequelize } from 'sequelize-typescript';
 import { ENV } from 'src/config/env';
 import { 
+  Order,
+  OrderPizza,
+  OrderPizzaPersonalization,
   PizzaFlavor,
   PizzaPersonalization,
   PizzaSize
@@ -21,12 +24,15 @@ export const databaseProviders = [
         sync: {
           force: false
         },
-        logging: true,
+        logging: false,
       });
       sequelize.addModels([
         PizzaSize,
         PizzaFlavor,
-        PizzaPersonalization
+        PizzaPersonalization,
+        Order,
+        OrderPizza,
+        OrderPizzaPersonalization
       ]);
       await sequelize.sync();
       return sequelize;

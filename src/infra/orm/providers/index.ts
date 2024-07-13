@@ -1,3 +1,6 @@
 export * from './pizza-size.provider'
 export * from './pizza-flavor.provider'
 export * from './pizza-personalization.provider'
+export * from './order.provider'
+export * from './order-pizza.provider'
+export * from './order-pizza-personalization.provider'

@@ -1,10 +1,10 @@
 import { Inject, Injectable } from '@nestjs/common'
-import { col, fn, literal } from 'sequelize';
+import { literal } from 'sequelize';
 import { FindOrderRepository, CreateOrderRepository } from 'src/data/protocols';
 import { Order, OrderPizza, OrderPizzaPersonalization, PizzaFlavor, PizzaPersonalization, PizzaSize } from 'src/infra/orm/entities';
 import { ORDER_REPOSITORY } from 'src/infra/orm/sequelize.repositories';
 import { sumTotalPrize, sumTotalTime } from 'src/infra/orm/helpers';
-import { sumPrizeFinal } from '../helpers/sum-prize-final';
+import { sumPrizeFinal } from 'src/infra/orm/helpers/sum-prize-final';
 
 
 @Injectable()

@@ -8,8 +8,8 @@ export interface OrderPizzaPersonalizationModel {
     orderPizzaId: number
     pizzaPersonalizationId: number
 
-    orderPizza: OrderPizzaModel
-    pizzaPersonalization: PizzaPersonalizationModel
+    orderPizza?: OrderPizzaModel
+    pizzaPersonalization?: PizzaPersonalizationModel
 
-    personalizationName: string
+    personalizationName?: string
 }

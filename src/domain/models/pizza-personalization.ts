@@ -3,4 +3,6 @@ export interface PizzaPersonalizationModel {
     personalization: string
     additionalTime: number
     additionalPrize: number
+
+    personalizationName?: string
 }

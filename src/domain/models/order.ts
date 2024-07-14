@@ -4,7 +4,7 @@ export interface OrderModel {
     id: number
     createdAt: Date
 
-    pizzas: OrderPizzaModel[]
+    pizzas?: OrderPizzaModel[]
 
     finalPrize?: Number
 

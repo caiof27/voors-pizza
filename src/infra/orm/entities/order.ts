@@ -1,4 +1,4 @@
-import { Table, Column, Model, PrimaryKey, AutoIncrement, HasMany, DataType } from 'sequelize-typescript';
+import { Table, Column, Model, PrimaryKey, AutoIncrement, HasMany, DataType, Default } from 'sequelize-typescript';
 import { OrderModel, OrderPizzaModel } from 'src/domain/models'
 import { OrderPizza } from './';
 
@@ -9,6 +9,7 @@ export class Order extends Model<OrderModel> implements OrderModel {
     @Column
     id: number
     
+    @Default(new Date().toISOString())
     @Column({field:'created_at'})
     createdAt: Date;
 

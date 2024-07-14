@@ -8,10 +8,11 @@ import {
   BuildFindPizzaSizesController,
   BuildFindOrderController
 } from 'src/main/factories/controllers';
+import { DatabaseModule } from 'src/infra/orm/database.module';
 
 
 @Module({
-  imports: [FactoryModule],
+  imports: [FactoryModule, DatabaseModule],
   controllers: [MainController],
   providers: [
     BuildFindPizzaSizesController,

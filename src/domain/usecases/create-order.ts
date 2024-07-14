@@ -10,7 +10,7 @@ export namespace CreateOrder{
     type Pizza = {
         flavorId: number
         sizeId: number
-        personalization: Personalization[]
+        personalization?: Personalization[]
     }
     type Personalization = {
         personalizationId: number

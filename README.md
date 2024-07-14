@@ -1,73 +1,166 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# API - Teste Tecnico Voors Pizza
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+##
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+API construída para teste tecnico utilizando NestJS e TypeScript.
+Recebe pedidos de uma pizzaria
 
-## Description
+## Tecnologias Utilizadas
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- `API`: NestJS
+- `ORM`: Sequelize
+- `Validações de Requisições`: Class Validator e Class Transformer
+- `Testes`: Jest
+- `Documentação de API`: Swagger
+- `Containers`: Docker
 
-## Installation
+## Informações Importantes
+
+Como padrão a porta da aplicação é definida pela variavel `APP_PORT`, para viés de exemplificação digamos que será `3000`
+
+URL's importantes:
+
+URL API: `http://localhost:3000/`
+Swagger: `http://localhost:3000/api-docs`
+
+## Processo de instalação
+
+# Dependencias
 
 ```bash
 $ npm install
 ```
 
-## Running the app
+# Migrações
+
+As migrações são executadas pelo sequelize utilizando o seguinte comando:
 
 ```bash
-# development
-$ npm run start
+$ npx sequelize-cli db:migrate
+```
 
-# watch mode
+# Seeds
+
+As migrações são executadas pelo sequelize utilizando o seguinte comando:
+
+```bash
+$ npx sequelize-cli db:seed:all
+```
+
+# Inicialização
+
+```bash
+# Desenvolvimento
 $ npm run start:dev
 
-# production mode
+# Produção
 $ npm run start:prod
 ```
 
-## Test
+# Testes
+
+A aplicação possui cobertura completa de testes
 
 ```bash
-# unit tests
-$ npm run test
+# Teste Unitarios
+$ npm run test:unit
 
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
+# Teste de Cobertura
 $ npm run test:cov
 ```
 
-## Support
+# Docker
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+A aplicação foi construída para ser executada com containers, então para construir a imagem da `API` e do `POSTGRES` utilize esse comando abaixo:
 
-## Stay in touch
+```bash
+# build image
+$ docker-compose up
+```
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+## Aspectos Técnicos
 
-## License
+# Modelagem de Banco
 
-Nest is [MIT licensed](LICENSE).
+Foram criadas as seguintes tabelas para atender aos requisitos propostos:
+
+- `tb_pizza_size`
+  Utilizada para armazenar os tamanho de pizza
+- `tb_pizza_flavor`
+  Utilizada para armazenar os sabores de  pizza
+- `tb_pizza_personalization`
+  Utilizada para armazenar as personalizações de pizza
+- `tb_order`
+  Utilizada para armazenar o pedido
+- `tb_order_pizza`
+  Utilizada para armazenar as pizzas relacionadas ao pedido
+- `tb_order_pizza_personalization`
+  Utilizada para armazenar as personalizações relacionadas as pizzas pedidas
+
+Segue abaixo a representação grafica:
+
+# Endpoints
+
+- Rotas GET:
+  Utilizadas para buscar informações
+
+  - `/flavor`
+  - `/size`
+  - `/personalization`
+  - `/order/:id`
+
+- Rotas POST:
+  Utilizadas para criar informações
+  
+  - `/order`
+
+O detalhamento das mesmas se encontra do Swagger
+
+# Status Code
+
+Os endpoints podem retornas os seguintes status:
+
+- `200 - OK`
+  Concluido com sucesso e retorna algo
+- `204 - No Content`
+  Concluido com sucesso e sem retorno
+- `500 - Server Error`
+  Falha na execução
+
+# Arquitetura
+
+Foram criadas as seguintes camadas inspiradas no Clean Architecture:
+
+- `Data`
+  Camada onde são definidas os repositorios, protocolos e aplicadas regras de negocio
+- `Domain`
+  Camada mais interna responsavel pela definição dos casos de uso e modelos
+- `Infra`
+  Camada de conexão com bibliotecas terceiras onde no caso são aplicados os repositorios atraves da ORM
+- `Main`
+  Camada mais externa onde é definida a API, recebidas as requisições e são feitas as coneções e injeções de dependencias
+- `Presentation`
+  Camada onde são utilizados os casos de uso e statusCode
+
+# Gitflow
+
+O fluxo de codigo foi feito da seguinte maneira
+
+- `feature/size`
+- `feature/flavor`
+- `feature/personalization`
+- `feature/order`
+- `feature/final-adjustments`
+
+Além disso tambem possuimos as seguintes branchs:
+
+- `master` -> para produçao
+- `develop` -> para desenvolvimento
+
+Para cada versão final será criada uma tag, segue abaixo a lista das mesmas:
+
+- `1.0.0`
+
+
+
+

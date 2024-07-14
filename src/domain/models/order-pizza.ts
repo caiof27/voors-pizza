@@ -11,14 +11,14 @@ export interface OrderPizzaModel {
     pizzaFlavorId: number
     pizzaSizeId: number
 
-    order: OrderModel
-    pizzaFlavor: PizzaFlavorModel
-    pizzaSize: PizzaSizeModel
+    order?: OrderModel
+    pizzaFlavor?: PizzaFlavorModel
+    pizzaSize?: PizzaSizeModel
 
-    personalization: OrderPizzaPersonalizationModel[]
+    personalization?: OrderPizzaPersonalizationModel[]
 
-    totalPrize: number
-    totalTime: number
-    flavorName: string
-    sizeName: string
+    totalPrize?: number
+    totalTime?: number
+    flavorName?: string
+    sizeName?: string
 }

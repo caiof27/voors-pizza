@@ -1,0 +1,17 @@
+version: '3'
+services:
+  app:
+    image: your-image
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - DB_HOST=localhost
+      - DB_PORT=5432
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=postgres
+      - DB_DATABASE=postgres
+      - DB_DIALECT=postgres
+      - APP_PORT=3027
+    ports:
+      - "3027:3027"
